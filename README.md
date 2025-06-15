@@ -41,25 +41,29 @@ Nesta fase, realizamos a identificação e documentação dos requisitos do sist
 
 Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas essenciais para entender a estrutura do sistema.  
 
-### 🔹 Diagramas Criados  
-✅ **Diagrama de Caso de Uso** ->
+### Diagramas Criados  
 
-![Diagrama de Caso de Uso](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Caso%20de%20Uso%20Padaria.png?raw=true)
+✅ **Diagrama de Caso de Uso**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Caso%20de%20Uso%20Padaria.png?raw=true" width="600px">
+</div>
 
+✅ **Diagrama de Classes**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Diagrama%20de%20Classe.png?raw=true" width="600px">
+</div>
 
-✅ **Diagrama de Classes** 
+✅ **Diagrama de Entidade Relacionamento**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaBD.png?raw=true" width="600px">
+</div>
 
-![Diagrama de Classes](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Diagrama%20de%20Classe.png?raw=true)
-
-✅ **Diagrama de Entidade Relacionamento**
-
-![Diagrama de Relacionamento Entidade](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaBD.png?raw=true) 
 
 ## FASE 3 - Protótipos
 
 Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta **Balsamiq**.
 
-### 📌 Protótipos Criados  
+### Protótipos Criados  
 
 ✅ **Tela de Menu Principal**  
 <div align="center">
