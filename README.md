@@ -43,12 +43,15 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 
 ### 🔹 Diagramas Criados  
 ✅ **Diagrama de Caso de Uso** 
+
 ![Diagrama de Caso de Uso](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/diagramas/Caso%20de%20Uso%20Padaria.png?token=GHSAT0AAAAAADFVRGANWYTJDFXJP4QPNJBY2COG5IA)
 
 ✅ **Diagrama de Classes** 
+
 ![Diagrama de Classes](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/diagramas/Diagrama%20de%20Classe.png?token=GHSAT0AAAAAADFVRGANDOVHMXAIVO46A6TW2COG6AQ)
 
 ✅ **Diagrama de Relacionamento Entidade** → Estruturação das tabelas e relacionamentos  
+
 ![Diagrama de Relacionamento Entidade](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/diagramas/DiagramaBD.png?token=GHSAT0AAAAAADFVRGANYCLOKRIF2I637FDK2COHAFA)  
 
 ## FASE 3 - Prototipação da Interface  
@@ -57,16 +60,20 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
 
 ### 📌 Protótipos Criados  
 ✅ **Tela de Menu Principal**
-![Tela de Menu Principal](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?token=GHSAT0AAAAAADFVRGAMEW4JPJTSPAOXIREG2COHFKA)
+
+![Tela de Menu Principal](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?token=GHSAT0AAAAAADFVRGAMEW4JPJTSPAOXIREG2COHFKA.png)
 
 ✅ **Tela de Login do Controle de Vendas**
-![Tela de Login do Controle de Vendas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?token=GHSAT0AAAAAADFVRGAN5XIZAS4CE4WAKFGU2COHNEQ)  
+
+![Tela de Login do Controle de Vendas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?token=GHSAT0AAAAAADFVRGAN5XIZAS4CE4WAKFGU2COHNEQ.png)  
 
 ✅ **Tela de Histórico de Comandas**
-![Tela de Histórico de Comandas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?token=GHSAT0AAAAAADFVRGAMQUDY3O2GSAKENJCI2COHDOQ)
+
+![Tela de Histórico de Comandas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?token=GHSAT0AAAAAADFVRGAMQUDY3O2GSAKENJCI2COHDOQ.png)
 
 ✅ **Tela para Adicionar Produtos**
-![Tela para Adicionar Produtos](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?token=GHSAT0AAAAAADFVRGANFD5D74M4FNQ2DMNI2COHLTA) 
+
+![Tela para Adicionar Produtos](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/refs/heads/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?token=GHSAT0AAAAAADFVRGANFD5D74M4FNQ2DMNI2COHLTA.png) 
 
 ✅ **Tela para Finalizar Pagamento**
 ![Tela para Finalizar Pagamento](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png) 
@@ -81,10 +88,9 @@ links...
   <img src="https://contrib.rocks/image?repo=DaianeTararam/Projeto-BancoDeDados"/>
 </a>
 
-### Criado por  
-
-<div align="center">
-  <a href="https://github.com/Joaoftito">João Francisco</a>,  
+### 
+<div>
+  Criado por <a href="https://github.com/Joaoftito">João Francisco</a>,  
   <a href="https://github.com/DaianeTararam">Daiane Tararam</a> e  
   <a href="https://github.com/JuanMitsuhiro">Juan Mitsuhiro</a>.
 </div>
