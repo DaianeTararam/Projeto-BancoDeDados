@@ -51,18 +51,18 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 
 ![Diagrama de Classes](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/diagramas/Diagrama%20de%20Classe.png)
 
-✅ **Diagrama de Relacionamento Entidade** → Estruturação das tabelas e relacionamentos  
+✅ **Diagrama de Entidade Relacionamento**
 
 ![Diagrama de Relacionamento Entidade](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/diagramas/DiagramaBD.png)  
 
-## FASE 3 - Prototipação da Interface  
+## FASE 3 - Protótipos
 
 Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta **Balsamiq**.
 
 ### 📌 Protótipos Criados  
 ✅ **Tela de Menu Principal**
 
-![Tela de Menu Principal](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png)
+![Tela de Menu Principal](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?raw=true)
 
 
 ✅ **Tela de Login do Controle de Vendas**
