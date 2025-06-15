@@ -44,16 +44,16 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 ### 🔹 Diagramas Criados  
 ✅ **Diagrama de Caso de Uso** ->
 
-![Diagrama de Caso de Uso](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/CasoDeUsoPadaria.png)
+![Diagrama de Caso de Uso](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/diagramas/CasoDeUsoPadaria.png)
 
 
 ✅ **Diagrama de Classes** 
 
-![Diagrama de Classes](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Diagrama%20de%20Classe.png)
+![Diagrama de Classes](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/diagramas/Diagrama%20de%20Classe.png)
 
 ✅ **Diagrama de Relacionamento Entidade** → Estruturação das tabelas e relacionamentos  
 
-![Diagrama de Relacionamento Entidade](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaBD.png)  
+![Diagrama de Relacionamento Entidade](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/diagramas/DiagramaBD.png)  
 
 ## FASE 3 - Prototipação da Interface  
 
@@ -62,24 +62,25 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
 ### 📌 Protótipos Criados  
 ✅ **Tela de Menu Principal**
 
-![Tela de Menu Principal](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png)
+![Tela de Menu Principal](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png)
 
 
 ✅ **Tela de Login do Controle de Vendas**
 
-![Tela de Login do Controle de Vendas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png)
+![Tela de Login do Controle de Vendas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png)
 
 
 ✅ **Tela de Histórico de Comandas**
 
-![Tela de Histórico de Comandas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png)
+![Tela de Histórico de Comandas](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png)
 
 ✅ **Tela para Adicionar Produtos**
 
-![Tela para Adicionar Produtos](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png) 
+![Tela para Adicionar Produtos](https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png) 
 
 ✅ **Tela para Finalizar Pagamento**
-![Tela para Finalizar Pagamento](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png) 
+
+![Tela para Finalizar Pagamento](https://github.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png) 
 
 ## FASE 4 - Desenvolvimento em Java com JavaFX e SGBD SQL Server  
 
