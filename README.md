@@ -60,27 +60,32 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta **Balsamiq**.
 
 ### 📌 Protótipos Criados  
-✅ **Tela de Menu Principal**
 
-![Tela de Menu Principal](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?raw=true)
+✅ **Tela de Menu Principal**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?raw=true" width="500px">
+</div>
 
+✅ **Tela de Login do Controle de Vendas**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?raw=true" width="500px">
+</div>
 
-✅ **Tela de Login do Controle de Vendas**
+✅ **Tela de Histórico de Comandas**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?raw=true" width="500px">
+</div>
 
-![Tela de Login do Controle de Vendas](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?raw=true)
+✅ **Tela para Adicionar Produtos**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?raw=true" width="500px">
+</div>
 
+✅ **Tela para Finalizar Pagamento**  
+<div align="center">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png?raw=true" width="500px">
+</div>
 
-✅ **Tela de Histórico de Comandas**
-
-![Tela de Histórico de Comandas](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?raw=true)
-
-✅ **Tela para Adicionar Produtos**
-
-![Tela para Adicionar Produtos](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?raw=true) 
-
-✅ **Tela para Finalizar Pagamento**
-
-![Tela para Finalizar Pagamento](https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png?raw=true) 
 
 ## FASE 4 - Desenvolvimento em Java com JavaFX e SGBD SQL Server  
 
