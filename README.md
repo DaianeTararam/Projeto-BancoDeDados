@@ -93,12 +93,18 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
 
 ## FASE 4 - Desenvolvimento em Java com JavaFX e SGBD SQL Server  
 
-links...
+Nesta fase, desenvolvemos a aplicação utilizando **Java com JavaFX** na interface e o **SQL Server** para o banco de dados.
+
+🔗 **Links para os códigos e arquivos**:
+
+- [Interface JavaFX](https://github.com/DaianeTararam/Projeto-BancoDeDados/tree/main/programa)  
+- [SQL Server](https://github.com/DaianeTararam/Projeto-BancoDeDados/tree/main/arquivoSQL)
+
 
 ### Alunos que contribuiram com o projeto:
 
 <a href="https://github.com/DaianeTararam/Projeto-BancoDeDados/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=DaianeTararam/Projeto-BancoDeDados"/>
+  <img src="https://contrib.rocks/image?repo=DaianeTararam/Projeto-BancoDeDados&cache_bust=1"/>
 </a>
 
 ### 
