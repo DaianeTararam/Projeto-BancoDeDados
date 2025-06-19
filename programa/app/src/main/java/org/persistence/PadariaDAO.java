@@ -9,12 +9,12 @@ import java.util.List;
 
 import org.model.Produto;
 
-public class padariaDAO {
+public class PadariaDAO {
 	
 	private GenericDAO gDao;
 	private Connection c;
 	
-	public padariaDAO(GenericDAO gDao) {
+	public PadariaDAO(GenericDAO gDao) {
 		this.gDao = gDao;
 	}
 	
