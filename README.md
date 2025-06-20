@@ -44,12 +44,12 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 
 ✅ **Diagrama de Caso de Uso**  
 <div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Caso%20de%20Uso%20Padaria.png?raw=true" width="600px">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaCasoUso.png?raw=true" width="600px">
 </div>
 
 ✅ **Diagrama de Classes**  
 <div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/Diagrama%20de%20Classe.png?raw=true" width="600px">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaClasses.png?raw=true" width="600px">
 </div>
 
 ✅ **Diagrama de Entidade Relacionamento**  
