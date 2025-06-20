@@ -54,7 +54,7 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 
 ✅ **Diagrama de Entidade Relacionamento**  
 <div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaBD.png?raw=true" width="600px">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/diagramas/DiagramaBancoDados.png?raw=true" width="600px">
 </div>
 
 
