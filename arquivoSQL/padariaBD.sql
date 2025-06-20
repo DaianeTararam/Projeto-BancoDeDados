@@ -21,7 +21,7 @@ FOREIGN KEY(CategoriaCodigo) REFERENCES Categoria(codigo)
 
 GO
 CREATE TABLE Comanda(
-codigo				INT							IDENTITY(100, 1),
+codigo				INT,
 valorTotal			DECIMAL(5,2)				NULL,
 dataHora			DATETIME					DEFAULT GETDATE()
 PRIMARY KEY(codigo)
@@ -73,3 +73,11 @@ INSERT INTO Produto VALUES
 ('Cafe', 2.50, 5),
 ('Refrigerante 350ml', 4.50, 5),
 ('Suco natural', 10.00, 5)
+
+INSERT INTO Comanda (codigo) VALUES
+(100),
+(101),
+(102),
+(103),
+(104),
+(105)
