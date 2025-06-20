@@ -1,6 +1,6 @@
-CREATE DATABASE padariaBD
+CREATE DATABASE PadariaBD
 GO
-USE padariaBD
+USE PadariaBD
 
 GO
 CREATE TABLE Categoria(
@@ -22,7 +22,6 @@ FOREIGN KEY(CategoriaCodigo) REFERENCES Categoria(codigo)
 GO
 CREATE TABLE Comanda(
 codigo				INT,
-valorTotal			DECIMAL(5,2)				NULL,
 dataHora			DATETIME					DEFAULT GETDATE()
 PRIMARY KEY(codigo)
 )
@@ -38,12 +37,19 @@ FOREIGN KEY(produtoCodigo) REFERENCES Produto(codigo)
 )
 
 GO
-CREATE TABLE Pagamento(
+CREATE TABLE FormaPagamento(
 codigo				INT							NOT NULL,
-formaPagamento		VARCHAR(30)					NOT NULL,
-comandaCodigo		INT							NOT NULL
+nome                VARCHAR(30)                 NOT NULL
 PRIMARY KEY(codigo)
-FOREIGN KEY(comandaCodigo) REFERENCES Comanda(codigo)
+)
+
+GO
+CREATE TABLE Pagamento(
+comandaCodigo       INT                         NOT NULL,
+formaPagamentoCodigo INT                        NOT NULL
+PRIMARY KEY(comandaCodigo, formaPagamentoCodigo)
+FOREIGN KEY(comandaCodigo) REFERENCES Comanda(codigo),
+FOREIGN KEY(formaPagamentoCodigo) REFERENCES FormaPagamento(codigo)
 )
 
 GO
@@ -81,3 +87,8 @@ INSERT INTO Comanda (codigo) VALUES
 (103),
 (104),
 (105)
+
+INSERT INTO FormaPagamento VALUES
+(1, 'Cartão'),
+(2, 'Dinheiro'),
+(3, 'Pix')
