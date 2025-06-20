@@ -15,11 +15,10 @@ Nesta fase, realizamos a identificação e documentação dos requisitos do sist
 | RF04   | O sistema deve permitir remover produtos da comanda. | Atendente |
 | RF05   | O sistema deve permitir editar a quantidade de um produto na comanda. | Atendente |
 | RF06   | O sistema deve calcular automaticamente o total da comanda. | Sistema |
-| RF07   | O sistema deve permitir a leitura da comanda no caixa. | Caixa |
-| RF08   | O sistema deve registrar o pagamento e finalizar a comanda. | Caixa |
-| RF09   | O sistema deve gerar um histórico das comandas. | Gerente |
-| RF10   | O sistema deve armazenar o histórico das comandas finalizadas. | Sistema |
-| RF11   | O sistema deve permitir consultar comandas finalizadas. | Gerente |
+| RF07   | O sistema deve registrar o pagamento e finalizar a comanda. | Atendente |
+| RF08   | O sistema deve gerar um histórico das comandas. | Atendente |
+| RF09   | O sistema deve armazenar o histórico das comandas finalizadas. | Sistema |
+| RF10   | O sistema deve permitir consultar comandas finalizadas. | Atendente |
 
 ### 📌 Requisitos Não Funcionais
 
