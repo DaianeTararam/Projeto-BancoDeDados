@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.model.Categoria;
 import org.model.Comanda;
 import org.model.Item;
 import org.model.Produto;
 
 public class PadariaDAOImplementation implements PadariaDAO{
-
 	private Connection c = null;
         private String hostName = "localhost";
 	private String userName = "sa";
@@ -52,12 +52,59 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return produtos;
 	}
 
+	public Produto getProduto(long codigo) throws SQLException {
+		String sql = "SELECT * FROM Produto WHERE codigo = ?";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigo);
+			ResultSet rs = ps.executeQuery();
+			if(rs.first()){
+				return gerarProduto(rs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private Produto gerarProduto(ResultSet rs){
+		Produto produto = new Produto();;
+		try {
+			produto.setCodigo(rs.getInt("codigo"));
+			produto.setNome(rs.getString("nome"));
+			Categoria categoria = new Categoria();
+			categoria = getCategoria(rs.getLong("categoriaCodigo"));
+			produto.setCategoria(categoria);
+			produto.setValorUnitario(rs.getDouble("valorUnitario"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return produto;
+	}
+
+	private Categoria getCategoria(long codigo){
+		Categoria categoria = new Categoria();
+		String sql = "SELECT nome FROM Categoria WHERE codigo = ?";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigo);
+			ResultSet rs = ps.executeQuery();
+			if (rs.first()){
+				categoria.setCodigo(codigo);
+				categoria.setNome(rs.getString("nome"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return categoria;
+	}
+
 	public List<Item> lerTodosItens(int codigo) throws SQLException{
 		List<Item> lista = new ArrayList<>();
 		String sql = "SELECT  p.codigo, p.nome, p.valorUnitario FROM Comanda c, Produto p, Item i WHERE c.codigo = i.comandaCodigo AND p.codigo = i.produtoCodigo AND c.codigo = ?";
         PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-        //
+        //continuar...
 		return lista;
 	}
 
