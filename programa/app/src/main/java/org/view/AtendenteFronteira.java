@@ -23,6 +23,8 @@ import javafx.util.Callback;
 import javafx.scene.control.TableView;
 import javafx.geometry.Insets;
 
+import java.sql.SQLException;
+
 import org.control.ComandaControle;
 import org.model.Item;
 
@@ -78,11 +80,11 @@ public class AtendenteFronteira extends Application{
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            setGraphic(btnApagar);
+                            setGraphic( btnApagar );
                         }
                     }
                 };
-        col5.setCellFactory(cellFactory);
+        col5.setCellFactory( cellFactory );
         tabela.getColumns().addAll(col1, col2, col3, col4, col5);
         tabela.setItems(controle.listaProperty());
 
@@ -160,7 +162,13 @@ public class AtendenteFronteira extends Application{
         Button btnSalvar = new Button("Salvar");
 
         btnSalvar.setOnAction( evento -> {
-            //metodo do controle para salvar os items 
+            //o metodo retorna() é só um teste, ele printa os itens cadastrados no terminal
+            try {
+                controle.retorna();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
             new Alert(AlertType.INFORMATION, 
                 "Item gravado com sucesso", 
                             ButtonType.OK).show();
@@ -169,15 +177,15 @@ public class AtendenteFronteira extends Application{
         Button btnPesquisar = new Button("Pesquisar");
 
         btnPesquisar.setOnAction( evento -> {
-            //metodo do controle para pesquisar um item da comanda, talvez nao seja usado (?)
+            //metodo do controle para pesquisar um item da comanda, talvez nao seja usado
         });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
 
         paneForm.add( paneBotoes, 0, 7, 2, 1);
         
-        panePrincipal.setTop(paneForm);
-        panePrincipal.setCenter(tabela);
+        panePrincipal.setTop( paneForm );
+        panePrincipal.setCenter( tabela );
 
         stage.setScene(scn);
         stage.setTitle("Comanda");
