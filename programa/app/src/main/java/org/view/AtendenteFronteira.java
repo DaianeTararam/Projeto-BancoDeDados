@@ -20,6 +20,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.LongStringConverter;
 import javafx.scene.control.TableView;
 import javafx.geometry.Insets;
 
@@ -39,15 +41,15 @@ public class AtendenteFronteira extends Application{
     private TableView<Item> tabela = new TableView<>();
 
     public void bindings(){
-        Bindings.bindBidirectional(controle.codigoProdutoProperty(), txtCodigoProduto.textProperty());
+        Bindings.bindBidirectional(txtCodigoProduto.textProperty(), controle.codigoProdutoProperty().asObject(), new LongStringConverter());
         Bindings.bindBidirectional(controle.nomeProdutoProperty(), txtNomeProduto.textProperty());
-        Bindings.bindBidirectional(controle.quantidadeProperty(), txtQuantidade.textProperty());
+        Bindings.bindBidirectional(txtQuantidade.textProperty(), controle.quantidadeProperty().asObject(), new IntegerStringConverter());
     }
 
     public void tableCreation(){
         TableColumn<Item, String> col1 = new TableColumn<>("Codigo");
         col1.setCellValueFactory(c -> {
-            String strCodigo = Integer.toString(c.getValue().getProduto().getCodigo());
+            String strCodigo = Long.toString(c.getValue().getProduto().getCodigo());
             return new ReadOnlyStringWrapper(strCodigo);
         });
 
@@ -144,14 +146,14 @@ public class AtendenteFronteira extends Application{
         paneForm.add(comandaAtual, 0, 0);
         paneForm.add(new Label("Codigo Comanda"), 0, 1);
         paneForm.add( txtCodigoComanda, 1, 1);
-        Button btnComanda = new Button("Criar/Selecionar");
+        Button btnComanda = new Button("Carregar");
         paneForm.add( btnComanda, 0, 2);
 
 
         Label addItens = new Label("Adicionar item");
         addItens.setStyle("-fx-font-weight: bold;");
         paneForm.add(addItens, 0, 3);
-        paneForm.add( new Label("Codigo"), 0, 4);
+        paneForm.add( new Label("Codigo Produto"), 0, 4);
         paneForm.add( txtCodigoProduto, 1, 4);
         paneForm.add( new Label("Produto:"), 0, 5);
         paneForm.add( txtNomeProduto, 1, 5);
