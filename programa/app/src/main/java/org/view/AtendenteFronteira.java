@@ -34,7 +34,6 @@ import org.model.Item;
 public class AtendenteFronteira extends Application{
     private ComandaControle controle = new ComandaControle();
     private TextField txtCodigoProduto = new TextField();
-    private TextField txtNomeProduto = new TextField();
     private TextField txtQuantidade = new TextField();
     private TextField txtCodigoComanda = new TextField();
 
@@ -42,7 +41,6 @@ public class AtendenteFronteira extends Application{
 
     public void bindings(){
         Bindings.bindBidirectional(txtCodigoProduto.textProperty(), controle.codigoProdutoProperty().asObject(), new LongStringConverter());
-        Bindings.bindBidirectional(controle.nomeProdutoProperty(), txtNomeProduto.textProperty());
         Bindings.bindBidirectional(txtQuantidade.textProperty(), controle.quantidadeProperty().asObject(), new IntegerStringConverter());
     }
 
@@ -107,7 +105,7 @@ public class AtendenteFronteira extends Application{
     
     }
 
-    public void start(Stage stage) { 
+    public void start(Stage stage) throws SQLException { 
         BorderPane panePrincipal = new BorderPane();
         GridPane paneForm = new GridPane();
         HBox paneBotoes = new HBox();
@@ -136,7 +134,6 @@ public class AtendenteFronteira extends Application{
 
         txtCodigoComanda.setMaxWidth(90);
         txtCodigoProduto.setMaxWidth(90);
-        txtNomeProduto.setMaxWidth(150);
         txtQuantidade.setMaxWidth(50);
         
 
@@ -149,16 +146,30 @@ public class AtendenteFronteira extends Application{
         Button btnComanda = new Button("Carregar");
         paneForm.add( btnComanda, 0, 2);
 
+        btnComanda.setOnAction( evento -> {
+            long codigo;
+            try {
+                codigo = Long.parseLong(txtCodigoComanda.getText());
+                controle.buscarComanda(codigo);
+            } catch (NumberFormatException | SQLException e) {
+                new Alert(AlertType.INFORMATION, 
+                "Código de comanda inválido", 
+                            ButtonType.OK).show();
+            }
+            
+            new Alert(AlertType.INFORMATION, 
+                "Comanda selecionada", 
+                            ButtonType.OK).show();
+        });
 
         Label addItens = new Label("Adicionar item");
         addItens.setStyle("-fx-font-weight: bold;");
         paneForm.add(addItens, 0, 3);
         paneForm.add( new Label("Codigo Produto"), 0, 4);
         paneForm.add( txtCodigoProduto, 1, 4);
-        paneForm.add( new Label("Produto:"), 0, 5);
-        paneForm.add( txtNomeProduto, 1, 5);
-        paneForm.add( new Label("Quantidade:"), 0, 6);
-        paneForm.add( txtQuantidade, 1, 6);
+        paneForm.add( new Label("Quantidade:"), 0, 5);
+        paneForm.add( txtQuantidade, 1, 5);
+
  
 
         Button btnSalvar = new Button("Salvar");
