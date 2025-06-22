@@ -30,11 +30,13 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        //languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.view.Main"
+    mainClass = "org.view.AtendenteFronteira"
+    //mainClass = "org.view.Main"
 }
