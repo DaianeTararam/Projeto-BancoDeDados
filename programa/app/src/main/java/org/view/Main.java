@@ -7,15 +7,15 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.persistence.GenericDAO;
-import org.persistence.padariaDAO;
 import org.model.Produto;
+import org.persistence.GenericDAO;
+import org.persistence.PadariaDAO;
 
 public class Main {
     public static void main(String[] args) {
 
         GenericDAO genericDAO = new GenericDAO();
-		padariaDAO pdDAO = new padariaDAO(genericDAO);
+		PadariaDAO pdDAO = new PadariaDAO(genericDAO);
 
         try {
 			Connection connection = genericDAO.getConnection("padariaBD");
@@ -29,6 +29,7 @@ public class Main {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}
-        
+		//A linha abaixo é para abrir a interface gráfica do menu principal
+        //Application.launch(MenuPrincipal.class, args);
     }
 }

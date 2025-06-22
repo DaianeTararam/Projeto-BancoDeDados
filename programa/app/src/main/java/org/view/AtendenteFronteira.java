@@ -1,8 +1,12 @@
 package org.view;
 
+import org.control.ComandaControle;
+import org.model.Item;
+
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -11,6 +15,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.BorderPane;
@@ -176,13 +181,7 @@ public class AtendenteFronteira extends Application{
         Button btnSalvar = new Button("Salvar");
 
         btnSalvar.setOnAction( evento -> {
-            //o metodo retorna() é só um teste, ele printa os itens cadastrados no terminal
-            try {
-                controle.retorna();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            //metodo do controle para salvar os items 
             new Alert(AlertType.INFORMATION, 
                 "Item gravado com sucesso", 
                             ButtonType.OK).show();

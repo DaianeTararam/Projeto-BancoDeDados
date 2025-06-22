@@ -6,8 +6,8 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     application
+    id("org.openjfx.javafxplugin") version "0.1.0" //my-note-daiane
 }
 
 repositories {
@@ -40,3 +40,7 @@ application {
     mainClass = "org.view.AtendenteFronteira"
     //mainClass = "org.view.Main"
 }
+javafx {//my-note-daiane
+    version = "17.0.15"//my-note-daiane
+    modules = listOf("javafx.controls", "javafx.fxml")//my-note-daiane
+}//my-note-daiane

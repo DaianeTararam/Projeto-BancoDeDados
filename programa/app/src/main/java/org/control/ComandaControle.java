@@ -1,11 +1,8 @@
 package org.control;
 
+import org.model.Comanda;
+import org.model.Item;
 import org.persistence.PadariaDAO;
-import org.persistence.PadariaDAOImplementation;
-
-import java.util.List;
-
-import org.model.*;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
@@ -67,6 +64,14 @@ public class ComandaControle {
         lista.remove(item);
     }
 
+    public Item telaParaLista(){
+        Item i = new Item();
+        i.setQuantidade(Integer.parseInt(quantidade.get()));
+        Produto p = new Produto();
+        p.setCodigo(Integer.parseInt(codigoProduto.get()));
+        p.setNome(nomeProduto.get());
+        i.setProduto(p);
+        return i;
 
     public Item telaParaItens(Produto produto){
         Item item = new Item();
@@ -79,7 +84,11 @@ public class ComandaControle {
     public void itensParaTela(){
 
     }
-
+    
+    public void adicionarItem(){
+        Item i = telaParaLista();
+        lista.add(i); 
+    }
 
 
     public LongProperty codigoProdutoProperty(){
