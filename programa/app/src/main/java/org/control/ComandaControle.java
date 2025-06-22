@@ -7,6 +7,10 @@ import java.util.List;
 
 import org.model.*;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -19,38 +23,61 @@ public class ComandaControle {
     private ObservableList<Item> lista = FXCollections.observableArrayList();
 
     private PadariaDAO padariaDAO = new PadariaDAOImplementation();
-    private StringProperty codigoProduto = new SimpleStringProperty("");
+    private LongProperty codigoProduto = new SimpleLongProperty(0);
     private StringProperty nomeProduto = new SimpleStringProperty("");
-    private StringProperty quantidade = new SimpleStringProperty("");
+    private IntegerProperty quantidade = new SimpleIntegerProperty(0);
     private Comanda comandaAtual;
 
-    // public Comanda buscarCriarComanda(int codigo){
-    // }
-    
-    //metodo retorna() é apenas um teste
+    public Comanda buscarComanda(long codigo) throws SQLException{
+        comandaAtual = padariaDAO.getComanda(codigo);
+        
+        return comandaAtual;
+    }
+
+    //apenas um teste pro botao salvar
     public void retorna() throws SQLException{
         List<Produto> lista = new ArrayList<>();
         lista = padariaDAO.getProdutos();
         lista.forEach(al -> System.out.println(al.toString()));
     }
 
-    public void addItem(int codigo){
-        //
+    //tem q terminar
+    public void addItem() throws SQLException{
+        Produto produto = new Produto();
+        produto = padariaDAO.getProduto(codigoProduto.get());
+        if (produto != null){
+            Item item = telaParaItens(produto);
+            //padariaDAO.guardar(item);
+            lista.add(item); 
+            //pesquisarItem();
+        }
+    }
+
+    public void atualizaTabela() throws SQLException{
+        lista.clear();
+        lista.addAll(padariaDAO.getItens(comandaAtual.getCodigo()));
     }
 
     public void remover(Item item){
         lista.remove(item);
     }
 
-    public Item telaParaLista(){
-        Item i = new Item();
-        //...
-        return i;
+
+    public Item telaParaItens(Produto produto){
+        Item item = new Item();
+        item.setProduto(produto);
+        item.setQuantidade(quantidade.get());
+        return item;
+    }
+
+    //tem q terminar
+    public void itensParaTela(){
+
     }
 
 
 
-    public StringProperty codigoProdutoProperty(){
+    public LongProperty codigoProdutoProperty(){
         return this.codigoProduto;
     }
 
@@ -58,7 +85,7 @@ public class ComandaControle {
         return this.nomeProduto;
     }
 
-    public StringProperty quantidadeProperty(){
+    public IntegerProperty quantidadeProperty(){
         return this.quantidade;
     }
 
