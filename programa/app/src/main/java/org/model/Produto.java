@@ -2,16 +2,16 @@ package org.model;
 
 public class Produto {
 	
-	private int codigo;
+	private long codigo;
 	private String nome;
 	private Categoria categoria = new Categoria();
 	private double valorUnitario;
 	
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 	
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 	
