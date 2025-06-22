@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class Pedido {
 	
-	private int codigo;
+	private long codigo;
 	private LocalDate dataHora = LocalDate.now();;
 	private double valorTotal;
 	private Comanda comanda = new Comanda();
 	private FormaPagamento formaPagamento = new FormaPagamento();
 	
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 	
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
