@@ -35,26 +35,33 @@ public class PadariaDAOImplementation implements PadariaDAO{
             e.printStackTrace();
         }
 	}
+	
 	//metodo só para o teste do botao salvar
-	public List<Produto> getProdutos() throws SQLException{
+	public List<Produto> getProdutos(){
 		String sql = "SELECT codigo, nome, valorUnitario FROM Produto";
-		PreparedStatement ps = c.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
+		PreparedStatement ps;
 		List<Produto> produtos = new ArrayList<>();
-		while (rs.next()) {
+		try {
+			ps = c.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
 			Produto produto = new Produto();
 			produto.setCodigo(rs.getInt("codigo"));
 			produto.setNome(rs.getString("nome"));
 			produto.setValorUnitario(rs.getDouble("valorUnitario"));
 			
 			produtos.add(produto);
+			}
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		rs.close();
-		ps.close();
+		
 		return produtos;
 	}
 
-		//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
+	//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
 	public Comanda getComanda(long codigo){
 		String sql = "SELECT * FROM Comanda WHERE codigo = ?";
 		try {
@@ -82,8 +89,9 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		}
 		return comanda;
 	}
+	
 	//seleciona os itens vincuados ao codigo da comanda e cria uma lista de itens (o gerarItem(rs) cria Item para adicionar na lista)
-	public List<Item> getItens(long comanda) throws SQLException{
+	public List<Item> getItens(long comanda){
 		List<Item> listaItens = new ArrayList<>();
 		String sql = "SELECT produtoCodigo, quantidade FROM ItemComanda WHERE comandaCodigo = ?";
 		try {
@@ -160,11 +168,18 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	}
 	//esse metodo foi adicionado antes, precisa rever a utilidade dele, provavel que seja
 	//para mostrar no TableView, pq precisa pegar alguns valores especificos (codigo, nome e valor unitario do produto e a quantidade pedida) 
-	public List<Item> lerTodosItens(int codigo) throws SQLException{
+	public List<Item> lerTodosItens(int codigo) {
 		List<Item> lista = new ArrayList<>();
 		String sql = "SELECT  p.codigo, p.nome, p.valorUnitario FROM Comanda c, Produto p, Item i WHERE c.codigo = i.comandaCodigo AND p.codigo = i.produtoCodigo AND c.codigo = ?";
-        PreparedStatement ps = c.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
+        PreparedStatement ps;
+		try {
+			ps = c.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
         //continuar...
 		return lista;
 	}
@@ -186,3 +201,4 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return null;
 	}
 }
+
