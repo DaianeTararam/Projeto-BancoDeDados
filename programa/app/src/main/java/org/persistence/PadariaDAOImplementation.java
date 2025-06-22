@@ -54,16 +54,18 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return produtos;
 	}
 
-	//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
-	public Comanda getComanda(long codigo) throws SQLException{
+		//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
+	public Comanda getComanda(long codigo){
 		String sql = "SELECT * FROM Comanda WHERE codigo = ?";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setLong(1, codigo);
 			ResultSet rs = ps.executeQuery();
-			if(rs.first()){
+			if(rs.next()){
 				return gerarComanda(rs);
 			}
+			rs.close();
+			ps.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
