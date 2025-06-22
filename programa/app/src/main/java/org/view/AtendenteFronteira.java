@@ -147,19 +147,20 @@ public class AtendenteFronteira extends Application{
         paneForm.add( btnComanda, 0, 2);
 
         btnComanda.setOnAction( evento -> {
-            long codigo;
             try {
-                codigo = Long.parseLong(txtCodigoComanda.getText());
-                controle.buscarComanda(codigo);
-            } catch (NumberFormatException | SQLException e) {
-                new Alert(AlertType.INFORMATION, 
-                "Código de comanda inválido", 
-                            ButtonType.OK).show();
-            }
-            
-            new Alert(AlertType.INFORMATION, 
+                if (controle.buscarComanda(Long.parseLong(txtCodigoComanda.getText()))){
+                    new Alert(AlertType.INFORMATION, 
                 "Comanda selecionada", 
                             ButtonType.OK).show();
+                } else {
+                    new Alert(AlertType.INFORMATION, 
+                "Código de comanda inválido", 
+                            ButtonType.OK).show();
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+            
         });
 
         Label addItens = new Label("Adicionar item");
