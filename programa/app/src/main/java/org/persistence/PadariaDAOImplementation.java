@@ -15,10 +15,10 @@ import org.model.Produto;
 public class PadariaDAOImplementation implements PadariaDAO{
 
 	private Connection c = null;
-    private String hostName = "localhost";
+        private String hostName = "localhost";
 	private String userName = "sa";
 	private String password = "123456";
-    private String dbName = "padariaBD";
+        private String dbName = "padariaBD";
 	
 	public PadariaDAOImplementation() {
 		try {
@@ -36,7 +36,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	
 	public List<Produto> getProdutos() throws SQLException{
 		String sql = "SELECT codigo, nome, valorUnitario FROM Produto";
-		//c = gDao.getConnection("padariaBD");
 		PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		List<Produto> produtos = new ArrayList<>();
@@ -56,7 +55,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	public List<Item> lerTodosItens(int codigo) throws SQLException{
 		List<Item> lista = new ArrayList<>();
 		String sql = "SELECT  p.codigo, p.nome, p.valorUnitario FROM Comanda c, Produto p, Item i WHERE c.codigo = i.comandaCodigo AND p.codigo = i.produtoCodigo AND c.codigo = ?";
-		//c = gDao.getConnection("padariaBD");
         PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
         //
