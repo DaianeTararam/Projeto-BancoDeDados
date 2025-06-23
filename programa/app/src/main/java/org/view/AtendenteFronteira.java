@@ -1,12 +1,8 @@
 package org.view;
 
-import org.control.ComandaControle;
-import org.model.Item;
-
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,7 +11,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.BorderPane;
@@ -65,12 +60,12 @@ public class AtendenteFronteira extends Application{
             return new ReadOnlyStringWrapper(strQtde);
         });
 
-        TableColumn<Item, String> col4 = new TableColumn<>("Valor Unitário");
+        TableColumn<Item, String> col4 = new TableColumn<>("Valor Unitario");
         col4.setCellValueFactory(c -> {
             String strValor = Double.toString(c.getValue().getProduto().getValorUnitario());
             return new ReadOnlyStringWrapper(strValor);
         });
-        TableColumn<Item, Void> col5 = new TableColumn<>("Ações");
+        TableColumn<Item, Void> col5 = new TableColumn<>("Opcoes");
         Callback<TableColumn<Item, Void>, TableCell<Item, Void>> cellFactory
                 = (tablecolumn) -> new TableCell<>() {
                     private Button btnApagar = new Button("Apagar");
@@ -96,7 +91,7 @@ public class AtendenteFronteira extends Application{
         tabela.getSelectionModel().selectedItemProperty().addListener(
             (obs, antigo, novo) -> { 
                 System.out.println("Contato selecionado ==> " + novo);
-                //controle.itensParaTela(novo);
+                controle.itensParaTela(novo);
             }
         );
     }
@@ -153,6 +148,7 @@ public class AtendenteFronteira extends Application{
 
         btnComanda.setOnAction( evento -> {
             try {
+                //long codigo = Long.parseLong(txtCodigoComanda.getText());
                 if (controle.buscarComanda(Long.parseLong(txtCodigoComanda.getText()))){
                     new Alert(AlertType.INFORMATION, 
                 "Comanda selecionada", 
@@ -181,7 +177,8 @@ public class AtendenteFronteira extends Application{
         Button btnSalvar = new Button("Salvar");
 
         btnSalvar.setOnAction( evento -> {
-            //metodo do controle para salvar os items 
+            controle.addItem();
+
             new Alert(AlertType.INFORMATION, 
                 "Item gravado com sucesso", 
                             ButtonType.OK).show();
