@@ -34,7 +34,7 @@ public class MenuPrincipal extends Application {
         // Aqui fiz a conexão dos botões ao Controller
         btnComanda.setOnAction(e -> {
             try {
-                new AtendenteFronteira().show();
+                new AtendenteFronteira().start();
                 stage.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
