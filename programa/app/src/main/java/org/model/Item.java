@@ -8,7 +8,11 @@ public class Item {
 	private int quantidade;
 	private LocalDate dataVenda;
 	
-	public Produto getProduto() {
+	public Item(Produto produto2, int i, LocalDate of) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public Produto getProduto() {
 		return produto;
 	}
 	
