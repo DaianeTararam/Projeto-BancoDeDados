@@ -31,11 +31,11 @@ public class MenuPrincipal extends Application {
         stage.setScene(cena);
         stage.show();
 
-        // Aqui fiz a conexão dos botões ao Controller
+        // Aqui fiz a conexão dos botões
         btnComanda.setOnAction(e -> {
             try {
-                new AtendenteFronteira().start();
-                stage.close();
+                new AtendenteFronteira().start(new Stage());
+                stage.close();           
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -44,10 +44,10 @@ public class MenuPrincipal extends Application {
         btnHistorico.setOnAction(e -> {
             new HistoricoFronteira().show();
             stage.close();
-      });
+        });
 
     }
-    public static void main(String[] args) {
-      launch(args);
-    }
+    //public static void main(String[] args) {
+        //launch(args);
+    //}
 }
