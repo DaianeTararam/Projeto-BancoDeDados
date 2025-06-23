@@ -69,7 +69,7 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?raw=true" width="500px">
 </div>
 
-✅ **Tela de Login do Controle de Vendas**  
+✅ **Tela de Login para Visualização do Histórico**  
 <div align="center">
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?raw=true" width="500px">
 </div>
