@@ -24,41 +24,16 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	//carrega a database
 	public PadariaDAOImplementation() {
 		try {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            	    Class.forName("net.sourceforge.jtds.jdbc.Driver");
 		    c = DriverManager.getConnection(
-				String.format("jdbc:jtds:sqlserver://%s:1433;databaseName=%s;user=%s;password=%s",
+			String.format("jdbc:jtds:sqlserver://%s:1433;databaseName=%s;user=%s;password=%s",
 						hostName, dbName, userName, password)
-				);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch(SQLException e) { 
-            e.printStackTrace();
-        }
-	}
-	
-	//metodo só para o teste do botao salvar
-	public List<Produto> getProdutos(){
-		String sql = "SELECT codigo, nome, valorUnitario FROM Produto";
-		PreparedStatement ps;
-		List<Produto> produtos = new ArrayList<>();
-		try {
-			ps = c.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-			Produto produto = new Produto();
-			produto.setCodigo(rs.getInt("codigo"));
-			produto.setNome(rs.getString("nome"));
-			produto.setValorUnitario(rs.getDouble("valorUnitario"));
-			
-			produtos.add(produto);
-			}
-			rs.close();
-			ps.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return produtos;
+		    );
+	        } catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	        } catch(SQLException e) { 
+	            e.printStackTrace();
+	        }
 	}
 
 	//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
@@ -118,6 +93,52 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return item;
 	}
 
+	//insere novo item no bd
+	public void guardar(Item item, long codigoComanda){
+		String sql = "INSERT INTO ItemComanda (comandaCodigo, produtoCodigo, quantidade) VALUES (?, ?, ?)";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigoComanda);
+			ps.setLong(2, item.getProduto().getCodigo());
+			ps.setInt(3, item.getQuantidade());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean atualizar(Item item, long codigoComanda){
+		String sql = "UPDATE ItemComanda SET comandaCodigo = ?, produtoCodigo = ?, quantidade = ?";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigoComanda);
+			ps.setLong(2, item.getProduto().getCodigo());
+			ps.setInt(3, item.getQuantidade());
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	//precisa add metodo p/ atualizar o valor
+	public boolean excluir(long codigoComanda, long codigoProduto){
+		String sql = "DELETE FROM ItemComanda WHERE comandaCodigo = ? AND produtoCodigo = ?";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigoComanda);
+			ps.setLong(2, codigoProduto);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+
+	//talvez add no table view um valot total de cada produto, fazer um metodo pra calcular (usar joins)
 
 	//pega as informacoes do produto pelo codigo
 	public Produto getProduto(long codigo){
@@ -126,7 +147,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setLong(1, codigo);
 			ResultSet rs = ps.executeQuery();
-			if(rs.first()){
+			if(rs.next()){
 				return gerarProduto(rs); //metodo separado p/ gerar Produto
 			}
 		} catch (SQLException e) {
@@ -157,7 +178,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setLong(1, codigo);
 			ResultSet rs = ps.executeQuery();
-			if (rs.first()){
+			if (rs.next()){
 				categoria.setCodigo(codigo);
 				categoria.setNome(rs.getString("nome"));
 			}
@@ -166,6 +187,8 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		}
 		return categoria;
 	}
+	
+	
 	//esse metodo foi adicionado antes, precisa rever a utilidade dele, provavel que seja
 	//para mostrar no TableView, pq precisa pegar alguns valores especificos (codigo, nome e valor unitario do produto e a quantidade pedida) 
 	public List<Item> lerTodosItens(int codigo) {
@@ -175,8 +198,8 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		try {
 			ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
+			//
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -192,7 +215,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setInt(1, codigo);
 			ResultSet rs = stm.executeQuery();
-			if (rs.first()){
+			if (rs.next()){
 				return comanda;//metodo que lê os itens da comanda para a tabela
 			}
 		} catch (SQLException e) {
@@ -201,4 +224,5 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return null;
 	}
 }
+
 
