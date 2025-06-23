@@ -42,16 +42,12 @@ public class MenuPrincipal extends Application {
         });
 
         btnHistorico.setOnAction(e -> {
-            try {
-                new HistoricoFronteira().show();
-                stage.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
+            new HistoricoFronteira().show();
+            stage.close();
+      });
 
     }
-    //public static void main(String[] args) {
-    //  launch(args);
-    //}
+    public static void main(String[] args) {
+      launch(args);
+    }
 }

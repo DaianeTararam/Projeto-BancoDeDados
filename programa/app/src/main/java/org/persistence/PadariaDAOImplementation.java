@@ -16,7 +16,7 @@ import org.model.Produto;
 
 public class PadariaDAOImplementation implements PadariaDAO{
 	private Connection c = null;
-        private String hostName = "localhost";
+    private String hostName = "localhost";
 	private String userName = "sa";
 	private String password = "123456";
         private String dbName = "padariaBD";
@@ -24,7 +24,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	//carrega a database
 	public PadariaDAOImplementation() {
 		try {
-            	    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
 		    c = DriverManager.getConnection(
 			String.format("jdbc:jtds:sqlserver://%s:1433;databaseName=%s;user=%s;password=%s",
 						hostName, dbName, userName, password)

@@ -6,7 +6,17 @@ public class Produto {
 	private String nome;
 	private Categoria categoria = new Categoria();
 	private double valorUnitario;
+
+	public Produto() {
+		super();
+	}
 	
+	public Produto(int codigo, String nome, double valorUnitario) {
+    	this.codigo = codigo;
+    	this.nome = nome;
+    	this.valorUnitario = valorUnitario;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

@@ -3,7 +3,11 @@ package org.view;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -68,7 +72,7 @@ public class LoginHistorico{
         pane.setPrefSize(400, 350);
 
         Scene scene = new Scene(pane);
-        stage.setTitle("Login - Controle de Vendas");
+        stage.setTitle("Login - Histórico");
         stage.setScene(scene);
         stage.show();
     }
