@@ -1,13 +1,11 @@
 package org.control;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.model.Comanda;
-import org.model.Item;
-import org.model.Produto;
 import org.persistence.PadariaDAO;
 import org.persistence.PadariaDAOImplementation;
+
+import java.util.List;
+
+import org.model.*;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
@@ -17,6 +15,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 
 public class ComandaControle {
     private ObservableList<Item> lista = FXCollections.observableArrayList();
@@ -39,23 +38,19 @@ public class ComandaControle {
 
     //metodo para validar comanda atual
 
-    //apenas um teste pro botao salvar
-    public void retorna(){
-        List<Produto> lista = new ArrayList<>();
-        lista = padariaDAO.getProdutos();
-        lista.forEach(al -> System.out.println(al.toString()));
-    }
-
-    //tem q terminar
     public void addItem(){
         Produto produto = new Produto();
         produto = padariaDAO.getProduto(codigoProduto.get());
         if (produto != null){
             Item item = telaParaItens(produto);
-            //padariaDAO.guardar(item);
-            lista.add(item); //?? ---- adiciona novo item na lista
-            //pesquisarItem(); <- ver pra q q serve
+            padariaDAO.guardar(item, comandaAtual.getCodigo());
+            atualizaTabela();
         }
+    }
+
+    public void remover(Item item){
+        padariaDAO.excluir(comandaAtual.getCodigo(), item.getProduto().getCodigo());
+        atualizaTabela();
     }
 
     public void atualizaTabela(){
@@ -63,9 +58,6 @@ public class ComandaControle {
         lista.addAll(padariaDAO.getItens(comandaAtual.getCodigo()));
     }
 
-    public void remover(Item item){
-        lista.remove(item);
-    }
 
     public Item telaParaItens(Produto produto){
         Item item = new Item();
@@ -74,22 +66,15 @@ public class ComandaControle {
         return item;
     }
 
-    public void itensParaTela(Item item) {
-        if (item != null) {
-            Produto produto = item.getProduto();
-            codigoProduto.set(produto.getCodigo());
-            nomeProduto.set(produto.getNome());
-            quantidade.set(item.getQuantidade());
-        }
+    //tem q terminar
+    public void itensParaTela(Item item){
+        codigoProduto.set(item.getProduto().getCodigo());
+        nomeProduto.set(item.getProduto().getNome());
+        quantidade.set(item.getQuantidade());
+
     }
-    
-    public void adicionarItem(){
-        Produto produto = padariaDAO.getProduto(codigoProduto.get());
-        if (produto != null) {
-            Item i = telaParaItens(produto);
-            lista.add(i);
-        }
-    }
+
+
 
     public LongProperty codigoProdutoProperty(){
         return this.codigoProduto;
