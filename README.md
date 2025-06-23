@@ -66,7 +66,7 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
 
 ✅ **Tela de Menu Principal**  
 <div align="center">
-  <img src="https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png" width="500px">
+  <img src="https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?v=2" width="500px">
 </div>
 
 
