@@ -30,17 +30,17 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        //languageVersion = JavaLanguageVersion.of(21)
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
+        //languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
 application {
     // Define the main class for the application.
     mainClass = "org.view.AtendenteFronteira"
-    //mainClass = "org.view.Main"
+    
 }
-javafx {//my-note-daiane
-    version = "17.0.15"//my-note-daiane
-    modules = listOf("javafx.controls", "javafx.fxml")//my-note-daiane
-}//my-note-daiane
+javafx {
+    version = "21"
+    modules = listOf("javafx.controls", "javafx.fxml")
+}
