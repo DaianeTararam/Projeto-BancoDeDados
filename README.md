@@ -69,24 +69,15 @@ Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta 
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?raw=true" width="500px">
 </div>
 
-✅ **Tela de Login para Visualização do Histórico**  
-<div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Menu%20Principal%20-%20parte%202.png?raw=true" width="500px">
-</div>
 
 ✅ **Tela de Histórico de Comandas**  
 <div align="center">
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?raw=true" width="500px">
 </div>
 
-✅ **Tela para Adicionar Produtos**  
+✅ **Tela da Comanda**  
 <div align="center">
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?raw=true" width="500px">
-</div>
-
-✅ **Tela para Finalizar Pagamento**  
-<div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Finalizar%20Pagamento.png?raw=true" width="500px">
 </div>
 
 
