@@ -36,12 +36,15 @@ public class AtendenteFronteira extends Application{
     private TextField txtCodigoProduto = new TextField();
     private TextField txtQuantidade = new TextField();
     private TextField txtCodigoComanda = new TextField();
+    private Label lblTotal = new Label("Valor Total:");
 
     private TableView<Item> tabela = new TableView<>();
 
     public void bindings(){
         Bindings.bindBidirectional(txtCodigoProduto.textProperty(), controle.codigoProdutoProperty().asObject(), new LongStringConverter());
         Bindings.bindBidirectional(txtQuantidade.textProperty(), controle.quantidadeProperty().asObject(), new IntegerStringConverter());
+        lblTotal.textProperty().bind(Bindings.createStringBinding(() -> String.format("Total vendido: R$ %.2f", 
+        controle.valorTotalProperty().get()), controle.valorTotalProperty()));
     }
 
     public void tableCreation(){
@@ -112,6 +115,7 @@ public class AtendenteFronteira extends Application{
         BorderPane panePrincipal = new BorderPane();
         GridPane paneForm = new GridPane();
         HBox paneBotoes = new HBox();
+        HBox painelRodape = new HBox();
 
         paneForm.setPadding(new Insets(15));
         paneForm.setHgap(10);
@@ -152,7 +156,8 @@ public class AtendenteFronteira extends Application{
         btnComanda.setOnAction( evento -> {
             try {
                 if (controle.buscarComanda(Long.parseLong(txtCodigoComanda.getText()))){
-                    controle.atualizaTabela();
+                    controle.atualizarTabela();
+                    controle.atualizarValorTotal();
                     mensagem("Comanda selecionada");
                 } else {
                     mensagem("Código de comanda inválido");
@@ -174,10 +179,10 @@ public class AtendenteFronteira extends Application{
  
 
         Button btnSalvar = new Button("Salvar");
-
         btnSalvar.setOnAction( evento -> {
             if(controle.validarComanda(Long.parseLong(txtCodigoComanda.getText()))){
                 if (controle.addItem()){
+                    controle.atualizarValorTotal();
                     mensagem("Item gravado com sucesso");
                 } else {
                     mensagem("Produto não encontrado");
@@ -189,18 +194,25 @@ public class AtendenteFronteira extends Application{
             
         });
 
-        Button btnPesquisar = new Button("Pesquisar");
-
+        Button btnPesquisar = new Button("Finalizar");
         btnPesquisar.setOnAction( evento -> {
-            //metodo do controle para pesquisar um item da comanda, talvez nao seja usado
+            controle.finalizarComanda();
+            mensagem("Pedido finalizado");
         });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
 
         paneForm.add( paneBotoes, 0, 7, 2, 1);
+
+
+        lblTotal.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+
+        painelRodape.setPadding(new Insets(10));
+        painelRodape.getChildren().add(lblTotal);
         
         panePrincipal.setTop( paneForm );
         panePrincipal.setCenter( tabela );
+        panePrincipal.setBottom(painelRodape);
 
         stage.setScene(scn);
         stage.setTitle("Comanda");
