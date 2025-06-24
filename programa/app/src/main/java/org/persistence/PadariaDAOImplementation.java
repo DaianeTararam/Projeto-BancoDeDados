@@ -9,15 +9,7 @@ import org.model.ProdutoPedido;
 import org.model.Comanda;
 import org.model.Pedido;
 
-
-public class PadariaDAOImplementation implements PadariaDAO{
-	private Connection c = null;
-        private String hostName = "localhost";
-	private String userName = "sa";
-	private String password = "123456";
-        private String dbName = "padariaBD";
 	
-	//carrega a database
 	public PadariaDAOImplementation() {
 		try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
@@ -33,7 +25,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 	}
 
 
-	//verifica se o codigo da comanda digitado existe e gera Comanda (gerarComanda(rs))
 	public Comanda getComanda(long codigo){
 		String sql = "SELECT * FROM Comanda WHERE codigo = ?";
 		try {
@@ -62,7 +53,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return comanda;
 	}
 	
-	//seleciona os itens vincuados ao codigo da comanda e cria uma lista de itens (o gerarItem(rs) cria Item para adicionar na lista)
 	public List<Item> getItens(long comanda){
 		List<Item> listaItens = new ArrayList<>();
 		String sql = "SELECT produtoCodigo, quantidade FROM ItemComanda WHERE comandaCodigo = ?";
@@ -90,7 +80,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return item;
 	}
 
-	//insere novo item no bd
 	public void guardar(Item item, long codigoComanda){
 		String sql = "INSERT INTO ItemComanda (comandaCodigo, produtoCodigo, quantidade) VALUES (?, ?, ?)";
 		try {
@@ -106,7 +95,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 
 	public boolean verificaProdutoLista(long codigoComanda, long codigoProduto){
 		String sql = "SELECT i.comandaCodigo FROM ItemComanda i LEFT OUTER JOIN Produto p ON i.produtoCodigo = p.codigo " + 
-						"WHERE i.produtoCodigo = ? AND i.comandaCodigo = ?";
+					 "WHERE i.produtoCodigo = ? AND i.comandaCodigo = ?";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setLong(1, codigoProduto);
@@ -134,7 +123,6 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		}
 	}
 
-	//precisa add metodo p/ atualizar o valor
 	public void excluir(long codigoComanda, long codigoProduto){
 		String sql = "DELETE FROM ItemComanda WHERE comandaCodigo = ? AND produtoCodigo = ?";
 		try {
@@ -146,11 +134,7 @@ public class PadariaDAOImplementation implements PadariaDAO{
 			e.printStackTrace();
 		}
 	}
-	
 
-	//talvez add no table view um valot total de cada produto, fazer um metodo pra calcular (usar joins)
-
-	//pega as informacoes do produto pelo codigo
 	public Produto getProduto(long codigo){
 		String sql = "SELECT * FROM Produto WHERE codigo = ?";
 		try {
@@ -158,12 +142,12 @@ public class PadariaDAOImplementation implements PadariaDAO{
 			ps.setLong(1, codigo);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
-				return gerarProduto(rs); //metodo separado p/ gerar Produto
+				return gerarProduto(rs);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //se o codigo nao existe, retorna null
+		return null;
 	}
 
 	private Produto gerarProduto(ResultSet rs){
@@ -180,16 +164,16 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		}
 		return produto;
 	}
-	//metodo auxiliar p/ criar Categoria p/ ser adicionado em Produto
-	private Categoria getCategoria(long codigo){
+
+	private Categoria getCategoria(long codigoCategoria){
 		Categoria categoria = new Categoria();
 		String sql = "SELECT nome FROM Categoria WHERE codigo = ?";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setLong(1, codigo);
+			ps.setLong(1, codigoCategoria);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()){
-				categoria.setCodigo(codigo);
+				categoria.setCodigo(codigoCategoria);
 				categoria.setNome(rs.getString("nome"));
 			}
 		} catch (Exception e) {
@@ -198,39 +182,81 @@ public class PadariaDAOImplementation implements PadariaDAO{
 		return categoria;
 	}
 	
-	
-	//esse metodo foi adicionado antes, precisa rever a utilidade dele, provavel que seja
-	//para mostrar no TableView, pq precisa pegar alguns valores especificos (codigo, nome e valor unitario do produto e a quantidade pedida) 
-	public List<Item> lerTodosItens(int codigo) {
-		List<Item> lista = new ArrayList<>();
-		String sql = "SELECT  p.codigo, p.nome, p.valorUnitario FROM Comanda c, Produto p, Item i WHERE c.codigo = i.comandaCodigo AND p.codigo = i.produtoCodigo AND c.codigo = ?";
-        PreparedStatement ps;
+	public Float calculaValorTotal(long codigoComanda){
+		String sql = "SELECT SUM(p.valorUnitario * i.quantidade) AS total FROM Produto p LEFT OUTER JOIN ItemComanda i " + 
+					 "ON p.codigo = i.produtoCodigo WHERE i.comandaCodigo = ?";
 		try {
-			ps = c.prepareStatement(sql);
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigoComanda);
 			ResultSet rs = ps.executeQuery();
-			//
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-        //continuar...
-		return lista;
-	}
-	//mesma coisa, foi adicionado antes das modificacoes, provavelmente vai ser substituido
-	//a ideia é verificar se a comanda existe para poder mostrar os itens dela na tela
-	public Comanda verificaComanda(int codigo){
-        Comanda comanda = new Comanda();
-		String sql = "SELECT codigo FROM comanda WHERE ?";
-		try {
-			PreparedStatement stm = c.prepareStatement(sql);
-			stm.setInt(1, codigo);
-			ResultSet rs = stm.executeQuery();
-			if (rs.next()){
-				return comanda;//metodo que lê os itens da comanda para a tabela
+			if(rs.next()){
+				Float valor = rs.getFloat("total");
+				return valor;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+	private long getCodigoPedido(){
+		String sqlPedido = "INSERT INTO Pedido DEFAULT VALUES";
+		try {
+			PreparedStatement ps = c.prepareStatement(sqlPedido, PreparedStatement.RETURN_GENERATED_KEYS);
+			ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				return rs.getLong(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void finalizarPedido(Comanda comanda){
+		List<Item> itensComanda = comanda.getItens();
+		String sql = "UPDATE Pedido SET valorTotal = ? WHERE codigo = ?";
+		long codigoPedido = getCodigoPedido();
+
+		for (Item item : itensComanda) {
+			gerarItemPedido(codigoPedido, item);
+		}
+
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setFloat(1, calculaValorTotal(comanda.getCodigo()));
+			ps.setLong(2, codigoPedido);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		limparItensComanda(comanda);
+	}
+
+	private void gerarItemPedido(long codigoPedido, Item item){
+		String sql = "INSERT INTO ItemPedido (pedidoCodigo, produtoCodigo, quantidade) VALUES (?, ?, ?)";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, codigoPedido);
+			ps.setLong(2, item.getProduto().getCodigo());
+			ps.setInt(3, item.getQuantidade());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void limparItensComanda(Comanda comanda){
+		String sql = "DELETE FROM ItemComanda WHERE comandaCodigo = ?";
+		try {
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setLong(1, comanda.getCodigo());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
+
