@@ -58,28 +58,16 @@ Nesta fase, realizamos a **modelagem do sistema**, incluindo alguns diagramas es
 </div>
 
 
-## FASE 3 - Protótipos
+## FASE 3 - Protótipo
 
-Nesta fase, desenvolvemos os **protótipos** do sistema utilizando a ferramenta **Balsamiq**.
+Nesta fase, desenvolvemos os **protótipo** do sistema utilizando a ferramenta **Balsamiq**.
 
-### Protótipos Criados  
-
-✅ **Tela de Menu Principal**  
-<div align="center">
-  <img src="https://raw.githubusercontent.com/DaianeTararam/Projeto-BancoDeDados/main/docs/prototipos/Menu%20Principal%20-%20parte%201.png?v=2" width="500px">
-</div>
-
+### Protótipo Criado  
 
 ✅ **Tela de Histórico de Comandas**  
 <div align="center">
   <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?raw=true" width="500px">
 </div>
-
-✅ **Tela da Comanda**  
-<div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?raw=true" width="500px">
-</div>
-
 
 ## FASE 4 - Desenvolvimento em Java com JavaFX e SGBD SQL Server  
 
@@ -92,6 +80,10 @@ Nesta fase, desenvolvemos a aplicação utilizando **Java com JavaFX** na interf
 
 
 ### Alunos que contribuiram com o projeto:
+
+- Daiane de Souza Alkmim Tararam
+- João Francisco Alves da Silva
+- Juan Mitsuhiro
 
 <a href="https://github.com/DaianeTararam/Projeto-BancoDeDados/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=DaianeTararam/Projeto-BancoDeDados&cache_bust=1"/>
