@@ -64,9 +64,9 @@ Nesta fase, desenvolvemos os **protótipo** do sistema utilizando a ferramenta *
 
 ### Protótipo Criado  
 
-✅ **Tela de Histórico de Comandas**  
+✅ **Tela da Comanda**  
 <div align="center">
-  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Hist%C3%B3rico%20das%20Comandas.png?raw=true" width="500px">
+  <img src="https://github.com/DaianeTararam/Projeto-BancoDeDados/blob/main/docs/prototipos/Prot%C3%B3tipo%20-%20Add%20Produtos.png?raw=true" width="500px">
 </div>
 
 ## FASE 4 - Desenvolvimento em Java com JavaFX e SGBD SQL Server  
