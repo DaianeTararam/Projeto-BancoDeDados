@@ -7,7 +7,6 @@ import org.model.Item;
 import org.model.Produto;
 
 public interface PadariaDAO {
-    public List<Item> lerTodosItens(int codigo);
     public Produto getProduto(long codigo);
     List<Item> getItens(long comanda) ;
     Comanda getComanda(long codigo);
@@ -15,5 +14,6 @@ public interface PadariaDAO {
     void excluir(long codigoComanda, long codigoProduto);
     boolean verificaProdutoLista(long codigoComanda, long codigoProduto);
     void editarQuantidadeProduto(int quantidade, long codigoComanda, long codigoProduto);
-    //colocar o restante aqui
+    Float calculaValorTotal(long codigoComanda);
+    void finalizarPedido(Comanda comanda);
 }
