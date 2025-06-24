@@ -4,10 +4,9 @@ import java.time.LocalDate;
 
 public class Pedido {
     private int codigo;
-	private LocalDate dataHora = LocalDate.now();;
-	private double valorTotal;
-	private Comanda comanda = new Comanda();
-	private FormaPagamento formaPagamento = new FormaPagamento();
+    private LocalDate dataHora = LocalDate.now();;
+    private Float valorTotal;
+
     
     public int getCodigo() {
         return codigo;
@@ -21,25 +20,12 @@ public class Pedido {
     public void setDataHora(LocalDate dataHora) {
         this.dataHora = dataHora;
     }
-    public double getValorTotal() {
+    public Float getValorTotal() {
         return valorTotal;
     }
-    public void setValorTotal(double valorTotal) {
+    public void setValorTotal(Float valorTotal) {
         this.valorTotal = valorTotal;
     }
-    public Comanda getComanda() {
-        return comanda;
-    }
-    public void setComanda(Comanda comanda) {
-        this.comanda = comanda;
-    }
-    public FormaPagamento getFormaPagamento() {
-        return formaPagamento;
-    }
-    public void setFormaPagamento(FormaPagamento formaPagamento) {
-        this.formaPagamento = formaPagamento;
-    }
 
-    
 
 }
