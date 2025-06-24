@@ -1,12 +1,11 @@
 package org.model;
 
 import java.util.List;
-import java.util.ArrayList;
 
 
 public class Comanda {
 	private long codigo;
-	private List<Item> itens = new ArrayList<>();
+	private List<Item> itens;
 	
 	public long getCodigo() {
 		return codigo;
