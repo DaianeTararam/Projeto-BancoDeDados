@@ -3,12 +3,22 @@ package org.persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.model.ProdutoPedido;
+import org.model.Categoria;
 import org.model.Comanda;
-import org.model.Pedido;
+import org.model.Item;
+import org.model.Produto;
 
+public class PadariaDAOImplementation implements PadariaDAO{
+	private Connection c = null;
+	private String hostName = "localhost";
+	private String userName = "usuario";
+	private String password = "123456";
+	private String dbName = "padariaBD";
 	
 	public PadariaDAOImplementation() {
 		try {
@@ -142,12 +152,12 @@ import org.model.Pedido;
 			ps.setLong(1, codigo);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
-				return gerarProduto(rs);
+				return gerarProduto(rs); //metodo separado p/ gerar Produto
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return null; //se o codigo nao existe, retorna null
 	}
 
 	private Produto gerarProduto(ResultSet rs){
@@ -259,4 +269,3 @@ import org.model.Pedido;
 		}
 	}
 }
-
