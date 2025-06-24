@@ -99,7 +99,6 @@ public class AtendenteFronteira extends Application{
         );
     }
 
-    //metodo pra deixar alguns textfields receberem apenas numeros
     private void aplicarFiltroNumerico(TextField campo){
         campo.setTextFormatter(new TextFormatter<>(change -> {
             String novoTexto = change.getControlNewText();
@@ -178,7 +177,7 @@ public class AtendenteFronteira extends Application{
 
  
 
-        Button btnSalvar = new Button("Salvar");
+        Button btnSalvar = new Button("Adicionar");
         btnSalvar.setOnAction( evento -> {
             if(controle.validarComanda(Long.parseLong(txtCodigoComanda.getText()))){
                 if (controle.addItem()){
@@ -196,8 +195,13 @@ public class AtendenteFronteira extends Application{
 
         Button btnPesquisar = new Button("Finalizar");
         btnPesquisar.setOnAction( evento -> {
-            controle.finalizarComanda();
-            mensagem("Pedido finalizado");
+            if (controle.finalizarComanda()){
+                mensagem("Pedido finalizado");
+            } else {
+                mensagem("Pedido não foi criado, sem itens adicionados");
+            }
+            
+            
         });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
