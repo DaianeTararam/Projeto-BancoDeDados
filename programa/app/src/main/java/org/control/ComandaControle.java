@@ -50,8 +50,8 @@ public class ComandaControle {
 
     public boolean addItem(){
         Produto produto = verificaCodigoProduto();
-        if (produto != null){
-            if (padariaDAO.verificaProdutoLista(comandaAtual.getCodigo(), codigoProduto.get())){
+        if (produto != null){ //se produto existe
+            if (padariaDAO.verificaProdutoLista(comandaAtual.getCodigo(), codigoProduto.get())){ //se produto já existe na lista, editar quantidade
                 padariaDAO.editarQuantidadeProduto(quantidade.get(), comandaAtual.getCodigo(), codigoProduto.get());
             } else {
                 Item item = telaParaItens(produto);
@@ -88,10 +88,14 @@ public class ComandaControle {
         }  
     }
 
-    public void finalizarComanda(){
-        padariaDAO.finalizarPedido(comandaAtual);
-        limparComandaAtual();
-        atualizarTabela();
+    public boolean finalizarComanda(){
+        if (!lista.isEmpty()){
+            padariaDAO.finalizarPedido(comandaAtual);
+            limparComandaAtual();
+            atualizarTabela();
+            return true;
+        }
+        return false;
     }
 
     private Item telaParaItens(Produto produto){
