@@ -43,7 +43,7 @@ public class AtendenteFronteira extends Application{
     public void bindings(){
         Bindings.bindBidirectional(txtCodigoProduto.textProperty(), controle.codigoProdutoProperty().asObject(), new LongStringConverter());
         Bindings.bindBidirectional(txtQuantidade.textProperty(), controle.quantidadeProperty().asObject(), new IntegerStringConverter());
-        lblTotal.textProperty().bind(Bindings.createStringBinding(() -> String.format("Total vendido: R$ %.2f", 
+        lblTotal.textProperty().bind(Bindings.createStringBinding(() -> String.format("Total: R$ %.2f", 
         controle.valorTotalProperty().get()), controle.valorTotalProperty()));
     }
 
